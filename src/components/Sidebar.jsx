@@ -15,7 +15,7 @@ export default function Sidebar({ links, close, isActive }) {
             <a
               href={link.path}
               key={index}
-              className="hover:border-l-5 hover:border-l-blue-600 hover:bg-sky-100 active:border-l-5 active:border-l-blue-600 py-1"
+              className="hover:border-l-5 hover:border-l-blue-600 hover:bg-sky-100 py-1 "
             >
               <FontAwesomeIcon icon={link.icon} className="ml-3" />
               <span className="ml-3">{link.name}</span>

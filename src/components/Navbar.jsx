@@ -1,5 +1,5 @@
 import { Link, useLocation } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 // component
 import Sidebar from "./Sidebar";
@@ -8,6 +8,7 @@ import Sidebar from "./Sidebar";
 import { faHome, faList, faArchway } from "@fortawesome/free-solid-svg-icons";
 export default function Navbar() {
   const [showSidebar, setShowSidebar] = useState(false);
+  const [isScrolling, setIsScrolling] = useState(true);
   const location = useLocation();
   const links = [
     {
@@ -27,9 +28,32 @@ export default function Navbar() {
     },
   ];
 
+  // Effect to track scroll position
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 50) {
+        setIsScrolling(true); // Start fading when scrolled down more than 50px
+      } else {
+        setIsScrolling(false); // Reset opacity when back at the top
+      }
+    };
+
+    // Add event listener for scroll
+    window.addEventListener("scroll", handleScroll);
+
+    // Cleanup the event listener when the component is unmounted
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
     <>
-      <div className="px-40 flex justify-between items-center py-1 bg-white text-zinc-900 shadow-md">
+      <div
+        className={`px-16 flex justify-between items-center py-1 bg-white text-zinc-900 shadow-md fixed w-full ${
+          isScrolling ? "opacity-70" : "opacity-100"
+        }`}
+      >
         <h1 className="text-2xl">Title Coin</h1>
         {/* Desktop Menu */}
         <div className="text-lg gap-8 tracking-wide font-semibold hidden md:flex">

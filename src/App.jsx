@@ -9,8 +9,9 @@ function App() {
   return (
     <>
       <Navbar />
-      {/* <Home />
-      <Features />
+      <Home/>
+      <Home/>
+      {/* <Features />
       <Roadmap /> */}
     </>
   );
