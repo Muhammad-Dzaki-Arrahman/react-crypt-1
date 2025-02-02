@@ -35,7 +35,7 @@ export default function Footer() {
             <a
               key={index}
               href={link.path}
-              className="hover:text-[#fd7f20] font-normal leading-3"
+              className="hover:text-[#fd7f20] font-normal leading-5"
             >
               {link.name}
             </a>

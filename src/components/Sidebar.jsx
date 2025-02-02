@@ -11,6 +11,14 @@ export default function Sidebar({ links, close, isActive }) {
         onClick={close}
       >
         <div className="flex flex-col gap-5 text-lg">
+          <h1 className="ml-2 mt-4 text-2xl flex font-medium">
+            <img
+              src="/image/community/img_1.svg"
+              alt="logo"
+              className="w-10 h-10"
+            />
+            <span className="text-[#fd7f20]">AI </span>Audit
+          </h1>
           {links.map((link, index) => (
             <a
               href={link.path}

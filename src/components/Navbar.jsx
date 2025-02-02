@@ -93,7 +93,12 @@ export default function Navbar() {
         }`}
       >
         {/* Desktop Menu */}
-        <h1 className="text-2xl">
+        <h1 className="text-2xl flex font-medium">
+          <img
+            src="/image/community/img_1.svg"
+            alt="logo"
+            className="w-10 h-10"
+          />
           <span className="text-[#fd7f20]">AI </span>Audit
         </h1>
         <div className="text-lg gap-8 tracking-wide font-semibold hidden md:flex">

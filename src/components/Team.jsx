@@ -33,6 +33,7 @@ export default function Team() {
               <div className="mb-8">
                 <div className="text-gray-900 font-bold text-xl mb-2">
                   {team.name}
+                  <span> - {team.title}</span>
                 </div>
                 <p className="text-gray-700 text-base max-w-md">{team.desc}</p>
               </div>

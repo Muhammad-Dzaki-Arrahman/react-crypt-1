@@ -3,10 +3,10 @@ export default function Community() {
     <>
       <div className="max-w-sm w-full my-8 md:max-w-full md:flex md:justify-center">
         <div
-          className="h-48 lg:h-auto lg:w-48 flex-none bg-cover rounded-t lg:rounded-t-none lg:rounded-l text-center overflow-hidden"
+          className="h-48 lg:h-auto lg:w-48 flex-none bg-cover rounded-l-2xl text-center overflow-hidden"
           style={{ backgroundImage: `url("/image/community/img_1.svg")` }}
         ></div>
-        <div className="border-r border-b border-l border-gray-400 lg:border-l-0 lg:border-t lg:border-gray-400 bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col justify-between leading-normal">
+        <div className="border-r border-b border-l border-gray-400 rounded-r-2xl lg:border-l-0 lg:border-t lg:border-gray-400 bg-white p-4 flex flex-col justify-between leading-normal">
           <div className="mb-8">
             <div className="text-gray-900 font-bold text-xl mb-2">
               Join us, and let's shape the future of blockchain
