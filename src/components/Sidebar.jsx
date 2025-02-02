@@ -3,7 +3,7 @@ export default function Sidebar({ links, close, isActive }) {
   return (
     <>
       <div
-        className={`fixed top-0 left-0 h-screen w-48 bg-slate-50 text-black shadow-md z-10 transition-all duration-500 box-shadow ${
+        className={`fixed top-0 left-0 h-screen w-48 bg-slate-50 text-black shadow-md z-50 transition-all duration-500 box-shadow ${
           isActive
             ? "transisition-all translate-x-0 duration-500"
             : "transisition-all -translate-x-full duration-500"
@@ -21,6 +21,16 @@ export default function Sidebar({ links, close, isActive }) {
               <span className="ml-3">{link.name}</span>
             </a>
           ))}{" "}
+          <button className="hover:bg-sky-100">
+            <a href="#" className="-ml-8">
+              Telegram
+            </a>
+          </button>
+          <button className="hover:bg-sky-100">
+            <a href="#" className="-ml-14">
+              Twitter
+            </a>
+          </button>
         </div>
       </div>
     </>

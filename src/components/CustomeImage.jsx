@@ -3,7 +3,7 @@ export default function CustomeImage() {
     <>
       <div>
         <img
-          className="animate-fade-in-scale h-44 md:h-80"
+          className="animate-fade-in-scale max-w-full h-auto md:h-80"
           src="/image/coin-1.jpg"
           alt=""
         />

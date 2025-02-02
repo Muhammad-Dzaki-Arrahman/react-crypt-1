@@ -1,6 +1,5 @@
-import { Link, useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
-
+import MetaMaskOnboarding from "@metamask/onboarding";
 // component
 import Sidebar from "./Sidebar";
 
@@ -9,20 +8,23 @@ import { faHome, faList, faArchway } from "@fortawesome/free-solid-svg-icons";
 export default function Navbar() {
   const [showSidebar, setShowSidebar] = useState(false);
   const [isScrolling, setIsScrolling] = useState(true);
-  const location = useLocation();
+  const [accounts, setAccounts] = useState([]);
+  const [isMetaMaskInstalled, setIsMetaMaskInstalled] = useState(false);
+  const [isConnecting, setIsConnecting] = useState(false);
+  const onboarding = new MetaMaskOnboarding();
   const links = [
     {
-      name: "Home",
+      name: "Team",
       path: "/",
       icon: faHome,
     },
     {
-      name: "Features",
+      name: "Coverage",
       path: "/",
       icon: faList,
     },
     {
-      name: "Roadmap",
+      name: "Testimoni",
       path: "/",
       icon: faArchway,
     },
@@ -47,64 +49,74 @@ export default function Navbar() {
     };
   }, []);
 
+  // Connect Metamask
+  useEffect(() => {
+    setIsMetaMaskInstalled(MetaMaskOnboarding.isMetaMaskInstalled());
+
+    const updateAccounts = (newAccounts) => {
+      setAccounts(newAccounts);
+    };
+
+    if (window.ethereum) {
+      window.ethereum.request({ method: "eth_accounts" }).then(updateAccounts);
+      window.ethereum.on("accountsChanged", updateAccounts);
+    }
+
+    return () => {
+      window.ethereum?.removeListener("accountsChanged", updateAccounts);
+    };
+  }, []);
+
+  const connectWallet = async () => {
+    if (!isMetaMaskInstalled) {
+      onboarding.startOnboarding();
+      return;
+    }
+
+    setIsConnecting(true);
+    try {
+      const newAccounts = await window.ethereum.request({
+        method: "eth_requestAccounts",
+      });
+      setAccounts(newAccounts);
+    } catch (error) {
+      console.error("Error connecting MetaMask:", error);
+      setIsConnecting(false);
+    }
+  };
+
   return (
     <>
       <div
-        className={`px-16 flex justify-between items-center py-1 bg-white text-zinc-900 shadow-md fixed w-full ${
+        className={`px-16 flex justify-between items-center py-3 bg-white text-zinc-900 shadow-md fixed w-full z-40 ${
           isScrolling ? "opacity-70" : "opacity-100"
         }`}
       >
-        <h1 className="text-2xl">Title Coin</h1>
         {/* Desktop Menu */}
+        <h1 className="text-2xl">
+          <span className="text-indigo-500">AI </span>Audit
+        </h1>
         <div className="text-lg gap-8 tracking-wide font-semibold hidden md:flex">
           {links.map((link, index) => (
-            <a
-              href={link.path}
-              key={index}
-              className="hover:text-blue-500 active:text-blue-500"
-            >
+            <a href={link.path} key={index} className="hover:text-indigo-500">
               {link.name}
             </a>
           ))}
-          {/* <Link
-            to="/home"
-            className={`relative group ${
-              location.hash === "/home" ? "scale-x-100" : ""
-            }`}
+          <button
+            className="bg-white px-4 py-1 font-semibold items-center rounded-full capitalize italic transition-all shadow-lg shadow-indigo-500/70 cursor-pointer relative hover:shadow"
+            onClick={connectWallet}
+            disabled={isConnecting}
           >
-            <div
-              className={`h-1 w-full top-6 bg-blue-700 absolute scale-x-0 group-hover:scale-x-100 transition-transform duration-200 ease-in ${
-                location.hash === "/home" ? "scale-x-100" : ""
-              }`}
-            ></div>
-            Home
-          </Link>
-          <Link
-            to="/features"
-            className={`relative group ${
-              location.hash === "/features" ? "scale-x-100" : ""
-            }`}
-          >
-            <div
-              className={`h-1 w-full top-6 bg-blue-700 absolute scale-x-0 group-hover:scale-x-100 transition-transform duration-200 ease-in ${
-                location.hash === "/features" ? "scale-x-100" : ""
-              }`}
-            ></div>
-            Features
-          </Link>
-          <Link
-            to="/roadmap"
-            className={`relative group ${
-              location.hash === "/roadmap" ? "scale-x-100" : ""
-            }`}
-          >
-            <div
-              className={`h-1 w-full top-6 bg-blue-700 absolute scale-x-0 group-hover:scale-x-100 transition-transform duration-200 ease-in ${
-                location.hash === "/roadmap" ? "scale-x-100" : ""
-              }`}
-            ></div>
-            Roadmap
-          </Link> */}
+            <span className="text-indigo-600">
+              {isMetaMaskInstalled
+                ? isConnecting
+                  ? "Connecting..."
+                  : accounts.length > 0
+                  ? `✔ ...${accounts[0].slice(-4)}`
+                  : "Connect MetaMask"
+                : "Install AI Audit!"}
+            </span>
+          </button>
         </div>
         {/* Mobile Menu */}
         <div

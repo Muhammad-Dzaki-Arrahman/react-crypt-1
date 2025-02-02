@@ -1,18 +1,17 @@
 // components
 import Navbar from "./components/Navbar";
 import Home from "./components/Home";
-import Features from "./components/Features";
-import Roadmap from "./components/Roadmap";
+import Team from "./components/Team";
+import Footer from "./components/Footer";
 import "./index.css";
 
 function App() {
   return (
     <>
       <Navbar />
-      <Home/>
-      <Home/>
-      {/* <Features />
-      <Roadmap /> */}
+      <Home />
+      {/* <Team /> */}
+      <Footer />
     </>
   );
 }
