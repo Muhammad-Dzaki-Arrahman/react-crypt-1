@@ -1,27 +1,31 @@
 export default function Footer() {
   const links = [
     {
-      name: "Home",
-      path: "/",
+      name: "Team",
+      path: "#team",
     },
     {
-      name: "Features",
-      path: "/",
+      name: "Clients",
+      path: "#client",
     },
     {
-      name: "Roadmap",
-      path: "/",
+      name: "Community",
+      path: "#community",
     },
   ];
   return (
     <>
-      <div className="flex flex-col md:flex-row gap-2 justify-center py-7">
-        <div className="px-2 md:w-[50%] text-xl">
-          <h2 className="font-semibold">Title Coin</h2>
+      <div className="flex flex-col md:flex-row gap-2 justify-center  px-16 py-7">
+        <div className="md:w-[50%] text-xl">
+          <img
+            src="/image/community/img_1.svg"
+            alt="logo"
+            className="w-20 h-20"
+          />
+          <h2 className="font-semibold">AI Audit</h2>
           <p className="text-sm my-1 font-normal">
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Impedit
-            magnam perferendis est culpa ratione illo maiores similique soluta
-            dolor repudiandae!
+            Optimize the security and transparency of your digital assets with
+            AI-based audit technology
           </p>
         </div>
         {/* Menu Bar */}
@@ -31,14 +35,14 @@ export default function Footer() {
             <a
               key={index}
               href={link.path}
-              className="hover:text-indigo-500/80 font-normal leading-3"
+              className="hover:text-[#fd7f20] font-normal leading-3"
             >
               {link.name}
             </a>
           ))}
         </div>
       </div>
-      <div className="text-center py-4 text-white bg-black">
+      <div className="text-center py-4 text-[#010100] font-bold">
         <span className="flex justify-center items-center">
           &copy; All Right Reserved.
         </span>

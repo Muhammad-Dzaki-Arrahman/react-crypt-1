@@ -1,5 +1,12 @@
 @import "tailwindcss";
 @layer theme, base, components, utilities;
+/* Color
+Orange : #FD7F20
+Red Orange : #FC2E20
+Amber : #FDB750
+Black : #010100
+
+*/
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -12,6 +19,9 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+html {
+  scroll-behavior: smooth;
 }
 .box-shadow {
   box-shadow: 0 0 0 1000px rgba(0, 0, 0, 0.2), 3px 0 5px #818181;

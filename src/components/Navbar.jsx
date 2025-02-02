@@ -15,17 +15,17 @@ export default function Navbar() {
   const links = [
     {
       name: "Team",
-      path: "/",
+      path: "#team",
       icon: faHome,
     },
     {
-      name: "Coverage",
-      path: "/",
+      name: "Client",
+      path: "#client",
       icon: faList,
     },
     {
-      name: "Testimoni",
-      path: "/",
+      name: "Community",
+      path: "#community",
       icon: faArchway,
     },
   ];
@@ -94,27 +94,37 @@ export default function Navbar() {
       >
         {/* Desktop Menu */}
         <h1 className="text-2xl">
-          <span className="text-indigo-500">AI </span>Audit
+          <span className="text-[#fd7f20]">AI </span>Audit
         </h1>
         <div className="text-lg gap-8 tracking-wide font-semibold hidden md:flex">
           {links.map((link, index) => (
-            <a href={link.path} key={index} className="hover:text-indigo-500">
+            <a href={link.path} key={index} className="hover:text-[#fd7f20]">
               {link.name}
             </a>
           ))}
+          <button className="bg-white px-4 py-1 font-semibold items-center rounded-full capitalize transition-all shadow-lg shadow-[#fdb750] cursor-pointer relative hover:shadow">
+            <a href="https://web.telegram.org/" target="_blank">
+              Telegram
+            </a>
+          </button>
+          <button className="bg-white px-4 py-1 font-semibold items-center rounded-full capitalize transition-all shadow-lg shadow-[#fdb750] cursor-pointer relative hover:shadow">
+            <a href="https://x.com/?mx=2" target="_blank">
+              Twitter
+            </a>
+          </button>
           <button
-            className="bg-white px-4 py-1 font-semibold items-center rounded-full capitalize italic transition-all shadow-lg shadow-indigo-500/70 cursor-pointer relative hover:shadow"
+            className="bg-white px-4 py-1 font-semibold items-center rounded-full capitalize italic transition-all shadow-lg shadow-orange-500 cursor-pointer relative hover:shadow"
             onClick={connectWallet}
             disabled={isConnecting}
           >
-            <span className="text-indigo-600">
+            <span className="text-[#fd7f20]">
               {isMetaMaskInstalled
                 ? isConnecting
                   ? "Connecting..."
                   : accounts.length > 0
                   ? `✔ ...${accounts[0].slice(-4)}`
                   : "Connect MetaMask"
-                : "Install AI Audit!"}
+                : "Install MetaMask"}
             </span>
           </button>
         </div>
@@ -125,17 +135,17 @@ export default function Navbar() {
         >
           {/* Bar */}
           <div
-            className={`h-1 w-8 bg-blue-700 transition-all duration-300 ${
+            className={`h-1 w-8 bg-[#fd7f20] transition-all duration-300 ${
               showSidebar ? "transform translate-y-3 rotate-45" : ""
             }`}
           ></div>
           <div
-            className={`h-1 w-8 bg-blue-700 transition-all duration-300 ${
+            className={`h-1 w-8 bg-[#fd7f20] transition-all duration-300 ${
               showSidebar ? "opacity-0" : ""
             }`}
           ></div>
           <div
-            className={`h-1 w-8 bg-blue-700 transition-all duration-300 ${
+            className={`h-1 w-8 bg-[#fd7f20] transition-all duration-300 ${
               showSidebar ? "transform -translate-y-2 -rotate-45" : ""
             }`}
           ></div>

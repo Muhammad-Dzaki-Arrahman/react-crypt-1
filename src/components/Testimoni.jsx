@@ -7,7 +7,7 @@ export default function Testimoni() {
       path: "/image/testimoni/img_1.jpg",
     },
     {
-      name: "Sarah Tanjaya",
+      name: "John Robert",
       comment:
         "With Audit AI, we ensured our smart contract was bug-free before launch. Highly recommended!",
       path: "/image/testimoni/img_1.jpg",
@@ -19,7 +19,7 @@ export default function Testimoni() {
       path: "/image/testimoni/img_1.jpg",
     },
     {
-      name: "Linda Kusuma",
+      name: "Kenny Lim",
       comment:
         "I feel much safer running my DeFi project after using Audit AI. Security is our top priority!",
       path: "/image/testimoni/img_1.jpg",
@@ -31,7 +31,7 @@ export default function Testimoni() {
       path: "/image/testimoni/img_1.jpg",
     },
     {
-      name: "Jessica Liem",
+      name: "William Austin",
       comment:
         "Audit AI enhances transparency and trust for our users. Our smart contract is now more secure and reliable!",
       path: "/image/testimoni/img_1.jpg",

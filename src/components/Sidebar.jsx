@@ -15,21 +15,20 @@ export default function Sidebar({ links, close, isActive }) {
             <a
               href={link.path}
               key={index}
-              className="hover:border-l-5 hover:border-l-blue-600 hover:bg-sky-100 py-1 "
+              className="hover:border-l-5 hover:border-l-orange-600 hover:bg-[#fdb750]/40 py-1 font-medium"
             >
-              <FontAwesomeIcon icon={link.icon} className="ml-3" />
+              <FontAwesomeIcon
+                icon={link.icon}
+                className="ml-3 text-[#fd7f20]"
+              />
               <span className="ml-3">{link.name}</span>
             </a>
           ))}{" "}
-          <button className="hover:bg-sky-100">
-            <a href="#" className="-ml-8">
-              Telegram
-            </a>
+          <button className="mx-auto bg-white px-4 py-1 font-semibold items-center rounded-full capitalize transition-all shadow-lg shadow-[#010100]/50 cursor-pointer relative hover:shadow">
+            <a href="https://web.telegram.org/">Telegram</a>
           </button>
-          <button className="hover:bg-sky-100">
-            <a href="#" className="-ml-14">
-              Twitter
-            </a>
+          <button className="mx-auto bg-white px-4 py-1 font-semibold items-center rounded-full capitalize transition-all shadow-lg shadow-[#010100]/50 cursor-pointer relative hover:shadow">
+            <a href="https://x.com/?mx=2">Twitter</a>
           </button>
         </div>
       </div>

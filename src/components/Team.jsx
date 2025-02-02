@@ -4,7 +4,7 @@ export default function Team() {
       name: "Jack Matthew",
       title: "CEO",
       desc: "Lead AI Audit by setting business vision, strategy, and direction.  Responsible for company growth, building partnerships, and ensuring innovation and business sustainability in the crypto industry.",
-      path: "/image/team/img_1.jpg",
+      path: "/image/team/img_1.png",
     },
     {
       name: "Willy Jackson",
